@@ -1,0 +1,10 @@
+[
+  { "id": "GEN-014", "name": "Backup generator 14", "category": "power", "last_checked": "2026-05-01T00:00:00Z", "check_interval_days": 30, "condition_notes": "" },
+  { "id": "HVAC-002", "name": "Rooftop HVAC unit 2", "category": "facilities", "last_checked": "2026-06-20T00:00:00Z", "check_interval_days": 90, "condition_notes": "minor noise on startup" },
+  { "id": "VEH-221", "name": "Utility truck 221", "category": "vehicle", "last_checked": "2026-04-02T00:00:00Z", "check_interval_days": 60, "condition_notes": "" },
+  { "id": "GEN-009", "name": "Backup generator 9", "category": "power", "last_checked": "2026-02-10T00:00:00Z", "check_interval_days": 30, "condition_notes": "fuel line replaced last visit" },
+  { "id": "COMMS-118", "name": "Comms relay 118", "category": "communications", "last_checked": "2026-07-01T00:00:00Z", "check_interval_days": 14, "condition_notes": "" },
+  { "id": "VEH-104", "name": "Forklift 104", "category": "vehicle", "last_checked": "2026-01-15T00:00:00Z", "check_interval_days": 45, "condition_notes": "hydraulic fail noted last inspection" },
+  { "id": "HVAC-011", "name": "Server room HVAC 11", "category": "facilities", "last_checked": "2026-06-28T00:00:00Z", "check_interval_days": 30, "condition_notes": "" },
+  { "id": "GEN-002", "name": "Backup generator 2", "category": "power", "last_checked": "2026-06-01T00:00:00Z", "check_interval_days": 30, "condition_notes": "" }
+]
