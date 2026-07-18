@@ -64,6 +64,40 @@ python modernize.py
 node verify_parity.js
 ```
 
+## Real-data benchmark
+
+`modernize.py` above analyzes this repo's own synthetic legacy code -
+useful for the migration story, but it's code I wrote, so a good analysis
+result isn't a strong claim. `benchmark.py` is a separate, additive check:
+does the same style of analysis actually surface a **real, well-known,
+documented vulnerability** in a real reference codebase?
+
+NIST SARD (samate.nist.gov/SARD) is the natural first place to look for
+labeled-vulnerable legacy code, but it has **no JavaScript test suite**
+(only C/C++/Java/PHP/C#) - so it's not used here rather than
+misrepresented. The honest real substitute for JS specifically is
+**[OWASP NodeGoat](https://github.com/OWASP/NodeGoat)** - an intentionally
+vulnerable Node.js reference app used industry-wide for AppSec training,
+where each vulnerability is self-documented (the fix is literally commented
+out above the vulnerable line).
+
+**Actual result** (full detail in `benchmark_report.md`): fed NodeGoat's
+`allocations.js` - which has a documented Insecure Direct Object Reference
+(IDOR): it reads `userId` from the URL instead of the session, so any user
+can view any other user's data - to the same analysis call. Claude's
+analysis named the IDOR precisely, **noticed the commented-out fix in the
+source** ("developers knew about this vulnerability but the fix is not
+active"), and additionally flagged missing authorization checks, an
+injection risk, and missing rate limiting - all legitimate.
+
+This is a pass/fail check on one real, documented case, not a statistical
+benchmark like the other repos' real-data tests - stated plainly rather
+than manufacturing a precision/recall number from a sample size of one.
+
+```bash
+python benchmark.py
+```
+
 ## Deployment path
 
 This demo calls the Anthropic API directly. A production version of this for
