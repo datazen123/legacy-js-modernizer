@@ -53,7 +53,10 @@ def strip_fences(text: str) -> str:
 
 
 def extract_json(text: str) -> dict:
-    return json.loads(strip_fences(text))
+    try:
+        return json.loads(strip_fences(text))
+    except json.JSONDecodeError as exc:
+        raise RuntimeError(f"Claude's response wasn't valid JSON: {exc}\nRaw response:\n{text}") from exc
 
 
 def main() -> None:

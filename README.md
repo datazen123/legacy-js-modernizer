@@ -108,4 +108,29 @@ includes an `AskSageClient` built from Ask Sage's
 [public API docs](https://github.com/Ask-Sage/AskSage-Open-Source-Community),
 untested pending an account).
 
+## Tests + CI
+
+`test_logic.js` (Node's built-in `assert`, zero extra dependencies) tests
+`legacy/logic.js`'s risk math directly, independent of `verify_parity.js`
+(which needs a prior API-generated `modernized/logic.js` to compare
+against). `test_modernize.py` covers the JSON-fence-stripping helpers.
+Neither needs an API key or network, safe for CI on every push:
+
+```bash
+pip install -r requirements-dev.txt && pytest -q
+node test_logic.js
+```
+
+## Security notes
+
+- API keys are read from environment variables only, never hardcoded;
+  `.env` is gitignored, `.env.example` ships placeholders only.
+- Checked (2026-07-18): this repository's full git history contains zero
+  occurrences of any real API key.
+- Network calls to the Ask Sage gateway have explicit 30s timeouts.
+- A malformed/non-JSON model response now raises a clear, actionable
+  error (with the raw response attached) instead of an opaque traceback.
+- Dependencies are version-pinned with an upper bound
+  (`>=X,<NEXT_MAJOR`), not left open-ended.
+
 Built with [Claude Code](https://claude.com/claude-code).
