@@ -22,6 +22,13 @@ into React. This demo is that exact task, scoped down to something
 demonstrable: legacy jQuery + vanilla JS in, explained and modernized with
 Claude's help, with the result checked rather than assumed correct.
 
+**Verified (2026-07), stated plainly:** a direct USASpending.gov search for
+Parsons' Korea-based awards found only an unrelated A&E/housing-market
+analysis contract at Osan - no matching IT/cyber contract award. This
+repo's grounding remains job-posting-level demand evidence, not
+award-level - an honest distinction, not a weaker one; job postings are
+real, current signal too, just a different kind than a signed contract.
+
 ## Architecture
 
 ```
