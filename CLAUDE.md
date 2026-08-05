@@ -33,5 +33,5 @@ scoped as job-posting-level, not award-level, evidence.
 
 Same as every other repo in this portfolio - see any actively-worked
 repo's `CLAUDE.md` (e.g. `network-config-drift-detector`) for the full
-list, or the private `datazen123/securebine-portfolio-context` repo for
-the master version.
+list, or this portfolio's private cross-repo context repo for the master
+version.
